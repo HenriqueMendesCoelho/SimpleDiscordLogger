@@ -21,6 +21,23 @@ public class DiscordWebhookRequestDto {
 		embeds = discordWebhook.getEmbeds().stream().map(EmbedRequestDto::new).toList();
 	}
 
+	public String toJson() {
+		StringBuilder json = new StringBuilder();
+		json.append("{\"embeds\": [");
+
+		for (int i = 0; i < embeds.size(); i++) {
+			String embedJson = embeds.get(i).toJson();
+			if ((i + 1) < embeds.size()) {
+				json.append(embedJson).append(",");
+				continue;
+			}
+
+			json.append(embedJson).append("]");
+		}
+
+		return json.append("}").toString();
+	}
+
 	@Data
 	@Builder
 	@AllArgsConstructor
@@ -37,6 +54,16 @@ public class DiscordWebhookRequestDto {
 			color = embed.getColor();
 			timestamp = embed.getTimestamp();
 		}
-	}
 
+		public String toJson() {
+			return """
+				   {
+				   	"type": %d,
+				   	"title": "%s",
+				   	"color": %d,
+				   	"timestamp": "%s"
+				   }
+				   """.formatted(type, title, color, timestamp);
+		}
+	}
 }
