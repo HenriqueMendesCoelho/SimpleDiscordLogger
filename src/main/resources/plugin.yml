@@ -1,0 +1,4 @@
+name: SimpleDiscordLogger
+version: 1.0.0
+main: plugin.simplediscordlogger.api.SimpleDiscordLogger
+author: HenriqueMendesCoelho
