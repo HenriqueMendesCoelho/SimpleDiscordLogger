@@ -19,4 +19,4 @@ SimpleDiscordLoggerPlugin is a lightweight Spigot plugin that enables instant Di
 Once installed and configured, SimpleDiscordLoggerPlugin will automatically send notifications to your Discord server whenever players join or leave your Minecraft server.
 
 ## License
-This project is licensed under the [MIT License](link_to_license).
+This project is licensed under the [MIT License](https://github.com/HenriqueMendesCoelho/SimpleDiscordLoggerPlugin/blob/main/LICENSE).
