@@ -14,6 +14,7 @@ import plugin.simplediscordlogger.discord.exception.DiscordWebhookErrorException
 public class OnPlayerLeaveListener implements Listener {
 
 	private final String url;
+	private final String messageJoin;
 
 	@EventHandler
 	public void onPlayerLeave(PlayerQuitEvent event) {
@@ -25,7 +26,7 @@ public class OnPlayerLeaveListener implements Listener {
 		String playerName = event.getPlayer().getName();
 		try {
 			final DiscordRepository repository = new DiscordRepositoryImpl(url);
-			repository.sendWebhook(DiscordWebhook.playerLeave(playerName));
+			repository.sendWebhook(DiscordWebhook.playerLeave(playerName, messageJoin));
 		} catch (DiscordWebhookErrorException e) {
 			Bukkit.getLogger().severe("Fail to send Discord Webhook: " + e.getMessage());
 		}

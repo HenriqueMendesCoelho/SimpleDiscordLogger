@@ -1,2 +1,5 @@
+settings:
+  player_join_message: "%player% acabou de entrar no servidor!"
+  player_leave_message: "%player% acabou de sair do servidor!"
 discord:
-  webhook_url: discordwebhookurl
+  webhook_url: "discordwebhookurl"

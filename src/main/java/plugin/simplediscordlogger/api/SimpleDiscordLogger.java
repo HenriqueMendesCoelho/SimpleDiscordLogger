@@ -21,8 +21,10 @@ public class SimpleDiscordLogger extends JavaPlugin {
 		getLogger().info("SimpleDiscordPlugin has been enabled!");
 
 		String url = getConfig().getString("discord.webhook_url");
-		getServer().getPluginManager().registerEvents(new OnPlayerJoinListener(url), this);
-		getServer().getPluginManager().registerEvents(new OnPlayerLeaveListener(url), this);
+		String playerJoinMessage = getConfig().getString("settings.player_join_message");
+		String playerLeaveMessage = getConfig().getString("settings.player_leave_message");
+		getServer().getPluginManager().registerEvents(new OnPlayerJoinListener(url, playerJoinMessage), this);
+		getServer().getPluginManager().registerEvents(new OnPlayerLeaveListener(url, playerLeaveMessage), this);
 	}
 
 	@Override
