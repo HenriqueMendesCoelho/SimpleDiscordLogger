@@ -56,18 +56,15 @@ public class DiscordWebhookRequestDto {
 		}
 
 		public String toJson() {
-			String result =
-					"{\n" + "    \"type\": " + type + ",\n" + "    \"title\": \"" + title + "\",\n" + "    \"color\": "
-							+ color + ",\n" + "    \"timestamp\": \"" + timestamp + "\"\n" + "}";
+			StringBuilder json = new StringBuilder();
+			json.append("{");
+			json.append("\"type\": ").append(type).append(",");
+			json.append("\"title\": \"").append(title).append("\",");
+			json.append("\"color\": \"").append(color).append("\",");
+			json.append("\"timestamp\":\"").append(timestamp).append("\"");
+			json.append("}");
 
-			return """
-				   {
-				   	"type": %d,
-				   	"title": "%s",
-				   	"color": %d,
-				   	"timestamp": "%s"
-				   }
-				   """.formatted(type, title, color, timestamp);
+			return json.toString();
 		}
 	}
 }
