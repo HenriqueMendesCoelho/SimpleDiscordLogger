@@ -1,8 +1,8 @@
-package plugin.simplediscordlogger.discord.adapter.rest.impl;
+package plugin.simplediscordlogger.discord.adapter.repository.rest.impl;
 
 import lombok.RequiredArgsConstructor;
-import plugin.simplediscordlogger.discord.adapter.rest.DiscordRepository;
-import plugin.simplediscordlogger.discord.adapter.rest.dto.DiscordWebhookRequestDto;
+import plugin.simplediscordlogger.discord.adapter.repository.rest.DiscordRepository;
+import plugin.simplediscordlogger.discord.adapter.repository.rest.dto.DiscordWebhookRequestDto;
 import plugin.simplediscordlogger.discord.domain.DiscordWebhook;
 import plugin.simplediscordlogger.discord.exception.DiscordWebhookErrorException;
 

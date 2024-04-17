@@ -1,4 +1,4 @@
-package plugin.simplediscordlogger.discord.adapter.rest.dto;
+package plugin.simplediscordlogger.discord.adapter.repository.rest.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
