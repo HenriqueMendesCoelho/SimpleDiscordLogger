@@ -17,18 +17,17 @@ public class DiscordRepositoryImpl implements DiscordRepository {
 	@Override
 	public void sendWebhook(DiscordWebhook request) throws DiscordWebhookErrorException {
 		try {
-			try (HttpClient httpClient = HttpClient.newHttpClient()) {
-				String json = new DiscordWebhookRequestDto(request).toJson();
-				HttpRequest httpRequest = HttpRequest.newBuilder()
-						.uri(URI.create(PluginConfig.getInstance().getWebhookUrl()))
-						.header("Content-Type", "application/json")
-						.method("POST", HttpRequest.BodyPublishers.ofString(json))
-						.build();
-				HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+			HttpClient httpClient = HttpClient.newHttpClient();
+			String json = new DiscordWebhookRequestDto(request).toJson();
+			HttpRequest httpRequest = HttpRequest.newBuilder()
+					.uri(URI.create(PluginConfig.getInstance().getWebhookUrl()))
+					.header("Content-Type", "application/json")
+					.method("POST", HttpRequest.BodyPublishers.ofString(json))
+					.build();
+			HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
 
-				if (response.statusCode() >= 300) {
-					throw new DiscordWebhookErrorException("Unexpected code " + response.statusCode());
-				}
+			if (response.statusCode() >= 300) {
+				throw new DiscordWebhookErrorException("Unexpected code " + response.statusCode());
 			}
 		} catch (IOException | InterruptedException e) {
 			throw new DiscordWebhookErrorException(e.getMessage());

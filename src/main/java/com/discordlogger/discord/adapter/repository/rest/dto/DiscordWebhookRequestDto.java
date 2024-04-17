@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.OffsetDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Data
 @Builder
@@ -18,7 +19,7 @@ public class DiscordWebhookRequestDto {
 	public List<EmbedRequestDto> embeds;
 
 	public DiscordWebhookRequestDto(DiscordWebhook discordWebhook) {
-		embeds = discordWebhook.getEmbeds().stream().map(EmbedRequestDto::new).toList();
+		embeds = discordWebhook.getEmbeds().stream().map(EmbedRequestDto::new).collect(Collectors.toList());
 	}
 
 	public String toJson() {
