@@ -15,12 +15,10 @@ public class SimpleDiscordLogger extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		PluginConfig.initialize(this);
-		PluginConfig config = PluginConfig.getInstance();
+		getServer().getPluginManager().registerEvents(new OnPlayerJoinListener(), this);
+		getServer().getPluginManager().registerEvents(new OnPlayerLeaveListener(), this);
 
 		getLogger().info("SimpleDiscordPlugin has been enabled!");
-
-		getServer().getPluginManager().registerEvents(new OnPlayerJoinListener(config), this);
-		getServer().getPluginManager().registerEvents(new OnPlayerLeaveListener(config), this);
 	}
 
 	@Override

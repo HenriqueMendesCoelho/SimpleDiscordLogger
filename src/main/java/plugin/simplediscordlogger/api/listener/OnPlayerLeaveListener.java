@@ -14,10 +14,11 @@ import plugin.simplediscordlogger.discord.exception.DiscordWebhookErrorException
 @RequiredArgsConstructor
 public class OnPlayerLeaveListener implements Listener {
 
-	private final PluginConfig config;
+	private final DiscordRepository repository = new DiscordRepositoryImpl();
 
 	@EventHandler
 	public void onPlayerLeave(PlayerQuitEvent event) {
+		PluginConfig config = PluginConfig.getInstance();
 		if (config.hasErrors()) {
 			Bukkit.getLogger().severe("Discord Webhook URL is not set in the config.yml file!");
 			return;
@@ -25,7 +26,6 @@ public class OnPlayerLeaveListener implements Listener {
 
 		try {
 			String playerName = event.getPlayer().getName();
-			final DiscordRepository repository = new DiscordRepositoryImpl(config.getWebhookUrl());
 			repository.sendWebhook(DiscordWebhook.playerLeave(playerName, config.getPlayerLeaveMessage()));
 		} catch (DiscordWebhookErrorException e) {
 			Bukkit.getLogger().severe("Fail to send Discord Webhook: " + e.getMessage());
