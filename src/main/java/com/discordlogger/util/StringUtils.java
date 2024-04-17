@@ -1,4 +1,4 @@
-package plugin.simplediscordlogger.util;
+package com.discordlogger.util;
 
 import java.util.Objects;
 

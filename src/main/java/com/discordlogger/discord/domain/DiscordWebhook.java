@@ -1,4 +1,4 @@
-package plugin.simplediscordlogger.discord.domain;
+package com.discordlogger.discord.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

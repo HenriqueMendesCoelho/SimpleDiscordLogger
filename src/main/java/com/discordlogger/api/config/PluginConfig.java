@@ -1,11 +1,11 @@
-package plugin.simplediscordlogger.api.config;
+package com.discordlogger.api.config;
 
+import com.discordlogger.util.StringUtils;
 import lombok.AllArgsConstructor;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
-import plugin.simplediscordlogger.util.StringUtils;
 
 import java.io.File;
 

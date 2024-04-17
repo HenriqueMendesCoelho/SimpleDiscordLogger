@@ -1,14 +1,14 @@
-package plugin.simplediscordlogger.api.listener;
+package com.discordlogger.api.listener;
 
+import com.discordlogger.api.config.PluginConfig;
+import com.discordlogger.discord.adapter.repository.rest.DiscordRepository;
+import com.discordlogger.discord.adapter.repository.rest.impl.DiscordRepositoryImpl;
+import com.discordlogger.discord.domain.DiscordWebhook;
+import com.discordlogger.discord.exception.DiscordWebhookErrorException;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
-import plugin.simplediscordlogger.api.config.PluginConfig;
-import plugin.simplediscordlogger.discord.adapter.repository.rest.DiscordRepository;
-import plugin.simplediscordlogger.discord.adapter.repository.rest.impl.DiscordRepositoryImpl;
-import plugin.simplediscordlogger.discord.domain.DiscordWebhook;
-import plugin.simplediscordlogger.discord.exception.DiscordWebhookErrorException;
 
 public class OnPlayerJoinListener implements Listener {
 

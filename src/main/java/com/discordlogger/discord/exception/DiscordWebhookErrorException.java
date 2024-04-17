@@ -1,4 +1,4 @@
-package plugin.simplediscordlogger.discord.exception;
+package com.discordlogger.discord.exception;
 
 public class DiscordWebhookErrorException extends Exception {
 

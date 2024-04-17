@@ -1,10 +1,10 @@
-package plugin.simplediscordlogger.discord.adapter.repository.rest.dto;
+package com.discordlogger.discord.adapter.repository.rest.dto;
 
+import com.discordlogger.discord.domain.DiscordWebhook;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import plugin.simplediscordlogger.discord.domain.DiscordWebhook;
 
 import java.time.OffsetDateTime;
 import java.util.List;
@@ -56,6 +56,10 @@ public class DiscordWebhookRequestDto {
 		}
 
 		public String toJson() {
+			String result =
+					"{\n" + "    \"type\": " + type + ",\n" + "    \"title\": \"" + title + "\",\n" + "    \"color\": "
+							+ color + ",\n" + "    \"timestamp\": \"" + timestamp + "\"\n" + "}";
+
 			return """
 				   {
 				   	"type": %d,

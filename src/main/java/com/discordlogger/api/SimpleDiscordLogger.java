@@ -1,11 +1,12 @@
-package plugin.simplediscordlogger.api;
+package com.discordlogger.api;
 
+import com.discordlogger.api.config.PluginConfig;
+import com.discordlogger.api.listener.OnPlayerJoinListener;
+import com.discordlogger.api.listener.OnPlayerLeaveListener;
 import lombok.Getter;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
-import plugin.simplediscordlogger.api.config.PluginConfig;
-import plugin.simplediscordlogger.api.listener.OnPlayerJoinListener;
-import plugin.simplediscordlogger.api.listener.OnPlayerLeaveListener;
 
 @Getter
 public class SimpleDiscordLogger extends JavaPlugin {
@@ -14,6 +15,9 @@ public class SimpleDiscordLogger extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
+		int pluginId = 21635;
+		Metrics metrics = new Metrics(this, pluginId);
+
 		PluginConfig.initialize(this);
 		getServer().getPluginManager().registerEvents(new OnPlayerJoinListener(), this);
 		getServer().getPluginManager().registerEvents(new OnPlayerLeaveListener(), this);
